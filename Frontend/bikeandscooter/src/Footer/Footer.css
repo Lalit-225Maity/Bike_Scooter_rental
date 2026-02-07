@@ -1,0 +1,106 @@
+ .footer {
+    background-color: #111;
+    color: #fff;
+    padding: 50px 80px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.page-end {
+    display: flex;
+    flex-direction: column; /* logo on top, content below */
+    align-items: center;    /* center the logo */
+    gap: 40px;
+}
+
+/* LOGO */
+.page-end > img {
+    height: 80px; /* comfortable size */
+    margin-bottom: 20px;
+}
+
+/* FOOTER CONTENTS */
+.footer-contents {
+    display: flex;
+    justify-content: space-between; /* space sections evenly */
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px; /* keeps it readable on big screens */
+}
+
+/* INDIVIDUAL SECTIONS */
+.part1,
+.part2,
+.part3,
+.part4 {
+    flex: 1;              /* makes all sections same width */
+    min-width: 180px;     /* prevents them from becoming too small */
+}
+
+/* HEADINGS */
+.page-end h4 {
+    margin-bottom: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #f1f1f1;
+}
+
+/* TEXT */
+.page-end p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #bbb;
+    cursor: pointer;
+}
+
+.page-end p:hover {
+    color: #fff;
+}
+
+/* APP BUTTONS */
+.apps {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.apps img {
+    width: 120px;
+    cursor: pointer;
+}
+
+/* ADDRESS SPACING */
+.part4 p {
+    line-height: 1.5;
+}
+
+/* COPYRIGHT */
+.copyright {
+    border-top: 1px solid #333;
+    margin-top: 40px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.copyright p {
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+    .footer {
+        padding: 40px 30px 20px;
+    }
+
+    .footer-contents {
+        flex-direction: column; /* stack sections vertically on smaller screens */
+        align-items: center;
+        gap: 30px;
+    }
+
+    .page-end > img {
+        margin-bottom: 20px;
+    }
+}

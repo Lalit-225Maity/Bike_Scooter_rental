@@ -1,0 +1,104 @@
+.booking {
+    margin-top: 10vh;
+    min-height: 100vh;
+    padding: 40px 70px;
+    background-color: #f4f6f9;
+}
+
+/* Grid wrapper */
+.card {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Bike card */
+.bike-details {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 14px;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bike-details:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Image */
+.bike-details img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Bike name */
+.bike-details h4 {
+    margin: 12px 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Price + mileage */
+.price-milage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+/* Price */
+.price-milage h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #26ccc2;
+}
+
+/* Speed & payment */
+.speed {
+    text-align: right;
+}
+
+.speed p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    margin: 3px 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.speed img {
+    width: 14px;
+    height: 14px;
+}
+
+/* Book button */
+.book-vehicle {
+    margin-top: auto;
+    padding: 12px 0;
+    border-radius: 25px;
+    border: none;
+    background: linear-gradient(135deg, #26ccc2, #00a8a8);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(38, 204, 194, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.book-vehicle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(38, 204, 194, 0.5);
+}
+
+.book-vehicle:active {
+    transform: scale(0.97);
+}

@@ -1,0 +1,125 @@
+ @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+ .navbar {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 10vh;
+     background: #ffffff;
+     z-index: 1000;
+     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+ }
+
+*{
+    padding: 0;margin: 0;
+}
+ .nav-details {
+     max-width: 100%;
+     height: 100%;
+     margin: 0 auto;
+     padding: 0 24px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+
+ .nav-details img {
+     height: 38px;
+     cursor: pointer;
+ }
+
+
+ .nav-mid {
+     display: flex;
+     align-items: center;
+     gap: 28px;
+ }
+
+ .nav-mid a {
+     text-decoration: none;
+     font-size: 15px;
+     font-weight: 500;
+     color: #222;
+     position: relative;
+     padding-bottom: 4px;
+     transition: color 0.3s ease;
+ }
+
+ .nav-mid a:hover {
+     color: #26CCC2;
+ }
+
+ .nav-mid a.active {
+     color: #26CCC2;
+ }
+
+*{
+     font-family: "Quicksand", sans-serif;
+}
+ .nav-mid a button {
+  border: none;
+     padding: 8px 16px;
+     border-radius: 20px;
+     color: #fff;
+     cursor: pointer;
+     
+     font-size: 14px;
+     font-weight: 500;
+     background:linear-gradient(135deg, #E9B3FB,
+    #8C00FF,
+    #FF3F7F,
+    #FFC400);
+     background-position: 0% 50%;
+     background-size:300% 300%;
+     animation-name: demonslayer;
+     animation-timing-function: ease-in-out;
+     animation-iteration-count: infinite;
+     animation-duration: 10s;
+
+}
+@keyframes demonslayer{
+    0%{
+      background-position: 0% 50%;
+    }
+    50%{
+       background-position: 100% 50%;
+    }
+    100%{
+         background-position: 0% 50%;
+    }
+}
+
+
+
+ .nav-mid a.active button {
+     background: #38bdf8;
+     color: #fff;
+ }
+
+
+
+ .nav-end button {
+     padding: 8px 18px;
+     border-radius: 20px;
+     border: none;
+    color:#fff;
+     background-color: #38bdf8;
+     font-size: 14px;
+     font-weight: bold;
+     cursor: pointer;
+     transition: all 0.3s ease;
+ }
+
+ .nav-end button:hover {
+     background: #8CE4FF;
+     color: #fff;
+
+ }
+
+
+
+ @media (max-width: 768px) {
+     .nav-mid {
+         display: none;
+     }
+ }
