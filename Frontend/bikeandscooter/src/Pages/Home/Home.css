@@ -1,135 +1,293 @@
-.home{
-    min-height: 100vh;
+ .home {
+   width: 100%;
+   overflow-x: hidden;
+   margin-top: 10vh;
+   min-height: 100vh;
+ }
+
+
+
+ .nav-body {
+   width: 100%;
+   height: 60vh;
+   display: flex;
+   align-items: center;
+   padding-left: 20px;
+
+ }
+
+ .nav-body-details {
+   width: 80%;
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+ }
+
+
+ .select-vehicle {
+   display: flex;
+   flex-direction: column;
+   width: 60%;
+   gap: 10px;
+   background: linear-gradient(135deg, #B0FFFA);
+   background-size: 300% 300%;
+   border-radius: 0px 20px 20px 20px;
+   border: 5px solid #FCF8F8;
+   padding: 40px 10px;
+
+   box-shadow:
+     0 8px 20px rgba(0, 0, 0, 0.15),
+     0 2px 6px rgba(0, 0, 0, 0.1);
+   animation-name: aot;
+   animation-timing-function: ease-in-out;
+   animation-duration: 10s;
+   animation-iteration-count: infinite;
+
+ }
+
+ @keyframes aot {
+   0% {
+     background-position: 0 50%;
+
+   }
+
+   50% {
+     background-position: 100% 50%;
+   }
+
+   100% {
+     background-position: 0 50%;
+   }
+ }
+
+ .nav-body-details form {
+   display: flex;
+   align-items: center;
+   border: 1px solid #e0e0e0;
+   border-radius: 25px;
+   overflow: hidden;
+   background: white;
+   width: 100%;
+ }
+
+ .select-city {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   cursor: pointer;
+   padding: 14px 18px;
+   border-right: 1px solid #ddd;
+   flex: 1;
+ }
+
+ .select-city input {
+   cursor: pointer;
+ }
+
+ .select-city img {
+   width: 20px;
+ }
+
+ .select-city input {
+   border: none;
+   outline: none;
+   width: 100%;
+   font-size: 15px;
+ }
+
+ /* DATE BOX */
+
+ .start-date,
+ .end-date {
+   display: flex;
+   align-items: center;
+   padding: 14px 18px;
+   border-right: 1px solid #ddd;
+   flex: 1;
+ }
+
+ .end-date {
+   border-right: none;
+ }
+
+ /* DATE INPUT */
+
+ .react-datepicker-wrapper {
+   width: 100%;
+ }
+
+ .react-datepicker-wrapper input {
+   border: none;
+   outline: none;
+   width: 100%;
+   font-size: 15px;
+   cursor: pointer;
+ }
+
+
+
+ .nav-body-details form #submit {
+   background: #E8E2D8;
+   margin-right: 10px;
+   display: flex;
+   border-radius: 100px;
+   align-items: center;
+   width: 40px;
+   height: 40px;
+   justify-content: center;
+   border: none;
+   cursor: pointer;
+ }
+
+ .nav-body-details form button img {
+   width: 15px;
+   filter: invert(1);
+ }
+
+ /* LOADING POPUP */
+
+  .search-bikes{
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin-top: 10vh;
-    border: 2px solid red;
-}
-/* Overlay for popup */
-.city-available {
-  position: absolute;
-  top: 60px; /* adjust based on where you want it */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 300px;
-  max-height: 400px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  overflow-y: auto;
-  z-index: 1000;
-  padding: 15px;
-  animation: fadeIn 0.3s ease-in-out;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.3); /* background blur effect */
+    z-index: 1000;
 }
 
-/* Close button */
-.city-available span {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 18px;
-  color: #333;
-  transition: color 0.2s;
+.load{
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
 }
 
-.city-available span:hover {
-  color: red;
+.loading{
+    width: 45px;
+    height: 45px;
+    border: 5px solid #e0e0e0;
+    border-top: 5px solid #00c6ff;
+    border-radius: 50%;
+
+    animation: spin 0.8s linear infinite;
 }
 
-/* Each city item */
-.choose-city {
-  display: flex;
-  align-items: center;
-  padding: 8px 10px;
-  margin-bottom: 8px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.2s;
+.load p{
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
 }
 
-.choose-city:hover {
-  background-color: #f0f0f0;
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }
 
-.choose-city img {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-right: 10px;
-}
 
-.choose-city p {
-  margin: 0;
-  font-size: 16px;
-  color: #333;
-}
+ .city-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100vh;
+   background: rgba(0, 0, 0, 0.45);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 1000;
+ }
 
-/* Scrollbar styling (optional) */
-.city-available::-webkit-scrollbar {
-  width: 6px;
-}
 
-.city-available::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 3px;
-}
+ .city-available {
+   width: 45vw;
+   background: #ffffff;
+   padding: 25px;
+   border-radius: 12px;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
+ }
 
-.city-available::-webkit-scrollbar-track {
-  background: transparent;
-}
 
-/* Fade in animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-  to { opacity: 1; transform: translateX(-50%) translateY(0); }
-}
-.nav-body{
-    height: 50%;
-    border: 2px solid green;
-}
-.select-city img{
-    height: 20px;
-}
-.select-vehicle  form button img{
-height: 20px;
-}
-.search-bikes {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(6px);
-  background-color: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 2000;
-}
+ .select-city-popover {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 10px;
+ }
 
-.loading {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #ff6600;
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  animation: spin 1s linear infinite;
-  margin-bottom: 15px;
-}
 
-@keyframes spin {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
-}
+ .select-city-popover h4 {
+   font-size: 18px;
+   font-weight: 600;
+   position: relative;
+ }
 
-.load p {
-  color: #fff;
-  font-size: 18px;
-  font-weight: bold;
-}
 
-/* Responsive */
- 
+ .select-city-popover h4::before {
+   content: '';
+   position: absolute;
+   bottom: -6px;
+   left: 0;
+   width: 40px;
+   height: 3px;
+   background: #ff6b00;
+   border-radius: 2px;
+ }
+
+
+ .close-btn {
+   font-size: 18px;
+   font-weight: bold;
+   cursor: pointer;
+ }
+
+
+ .choose-city {
+   width: 120px;
+   background: #fff;
+   border-radius: 10px;
+   padding: 12px;
+   text-align: center;
+   cursor: pointer;
+   transition: 0.3s;
+   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+ }
+
+
+ .choose-city:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+ }
+
+
+ .choose-city img {
+   width: 100%;
+   height: 80px;
+   object-fit: cover;
+   border-radius: 8px;
+ }
+
+
+ .choose-city p {
+   margin-top: 8px;
+   font-size: 14px;
+   font-weight: 500;
+ }

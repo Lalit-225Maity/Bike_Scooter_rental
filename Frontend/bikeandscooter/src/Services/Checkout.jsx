@@ -11,10 +11,12 @@ const Checkout = () => {
     const [afternoon, setafternoon] = useState(false);
     const [time, settime] = useState();
     useEffect(() => {
-        const calulate = Math.abs(Math.ceil((date - enddate) / (1000 * 60 * 60 * 24)));
+        const startdate=new Date(date);
+        const endate=new Date(enddate)
+        const calulate = Math.abs(Math.ceil((endate-startdate) / (1000 * 60 * 60 * 24)));
+console.log(calulate);
         setresult(calulate);
-
-    }, [])
+    }, [date, enddate])
 
 
     const Morning = () => {
@@ -46,9 +48,9 @@ const Checkout = () => {
 
                                 <p> <img src="/location (1).png" alt="" id='location' />{selectcity}</p>
                                 <div className="dates-select">
-                                    <p>{date.toLocaleDateString()}</p>
+                                    <p>{new Date(date).toDateString()}</p>
                                     <p>-------------------------</p>
-                                    <p>{enddate.toLocaleDateString()}</p>
+                                    <p>{new Date(enddate).toDateString()}</p>
                                     <button>{result} Days</button>
                                 </div>
 
@@ -72,8 +74,7 @@ const Checkout = () => {
                             <h4>Morning</h4>
                         </div>
                         <div className="afternoon" onClick={(e) => {
-                            e.stopPropagation
-                                (); Afternoon()
+                            e.stopPropagation(); Afternoon()
                         }}>
                             <img src="/weather.png" alt="Error" />
                             <h4>Afternoon</h4>

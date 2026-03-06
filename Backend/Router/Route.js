@@ -23,10 +23,8 @@ router.post('/book', async (req, res) => {
 router.get('/book', async (req, res) => {
     try {
 
-        let { cityname } = req.query;
-        if (!Array.isArray(cityname)) {
-            cityname = [cityname];
-        }
+        const { cityname } = req.query;
+     
         const bikes = await Bike.find({
             city: { $in: cityname }
         })

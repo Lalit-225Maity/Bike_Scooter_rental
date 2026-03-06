@@ -13,12 +13,14 @@ const Booking = () => {
         (async () => {
             try {
                 const response = await axios.get(`/api/book?cityname=${selectcity}`);
+                console.log(response.data.user);
+                
                 setdetails(response.data.user);
             } catch (error) {
                 console.log(error.response.data.message);
             }
         })();
-    }, [])
+    }, [selectcity])
     const prove = (i) => {
         console.log(i);
         setbikeselect(i);
