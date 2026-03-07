@@ -10,14 +10,32 @@ const Home = () => {
   const [cities, setcities] = useState(false);
   const [startdate, setstartdate] = useState();
   const [enddate, setenddate] = useState();
+  const [index, setindex] = useState(0);
+const Offer=[
+  " https://cms.freedo.rentals/cms-static/New_Refer_and_Earn_offer_2f8db25475.webp",
+   
+  "https://content3.jdmagicbox.com/v2/comp/hyderabad/i9/040pxx40.xx40.241121174450.e4i9/catalogue/freedo-rentals-madhapur-hyderabad-bike-on-rent-noo1i8vxls.jpg"
+
+]
   const {
     register,
     handleSubmit,
     setValue,
+    watch,
     reset,
     formState: { isSubmitting }
   } = useForm();
-
+  const select_city = watch("Select_City");
+  useEffect(() => {
+     const TimerChange=setInterval(() => {
+      setindex((i)=>{
+        const result=(i+1)%Offer.length;
+        return result
+      })
+     }, 20000);
+     return()=>{clearInterval(TimerChange)}
+  }, [Offer.length])
+  
   const changepage = async (data) => {
     await new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -32,8 +50,6 @@ const Home = () => {
 
       }, 3000);
     })
-
-
   }
   return (
     <div className='home'>
@@ -59,6 +75,7 @@ const Home = () => {
                   selected={startdate}
                   onChange={(e) => { setstartdate(e); setValue("start_date", e) }}
                   minDate={new Date()}
+                  disabled={!select_city}
                   dateFormat='dd/MM/yyyy'
                   placeholderText='start-date'
                 />
@@ -88,8 +105,11 @@ const Home = () => {
             </form>
           </div>
         </div>
-
+<div className="offer-detail" >
+        <img  key={index} src={Offer[index]} alt="Error" />
       </div>
+      </div>
+       
       {cities && (
         <div className="city-overlay" onClick={() => setcities(false)}>
 

@@ -4,7 +4,7 @@ const store = [
         name: "YAMAHA Fascino",
         price: 799,
         mileage: 240,
-        city:["Kolkata"],
+        city:["Kolkata","Delhi"],
         payment: "Zero Deposit Fee",
     },
     {
@@ -12,7 +12,7 @@ const store = [
         name: "HONDA Activa 5G",
         price: 999,
         mileage: 300,
-        city:["Delhi"],
+        city:["Delhi","Mumbai"],
         payment: "Zero Deposit Fee"
     },
     {

@@ -24,9 +24,9 @@ router.get('/book', async (req, res) => {
     try {
 
         const { cityname } = req.query;
-     
+
         const bikes = await Bike.find({
-            city: { $in: cityname }
+            city: { $in: [cityname] }
         })
         res.status(200).json({
             success: true,
