@@ -13,9 +13,8 @@ const Booking = () => {
         (async () => {
             try {
                 const response = await axios.get(`/api/book?cityname=${selectcity}`);
-                console.log(response.data.user);
-                
-                setdetails(response.data.user);
+                console.log(response.data.FetchBike);
+                setdetails(response.data.FetchBike);
             } catch (error) {
                 console.log(error.response.data.message);
             }

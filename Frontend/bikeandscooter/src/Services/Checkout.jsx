@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 const Checkout = () => {
     const { state } = useLocation();
+    const [col, setcol] = useState();
     const { product, date, enddate, selectcity } = state || {};
     const [result, setresult] = useState();
     const [timatable, settimatable] = useState(true);
@@ -68,13 +69,13 @@ console.log(calulate);
                             </div>
                         </div>
                     </div>
-                    <div className="time-slot" onClick={() => { Morning() }}>
-                        <div className="morning" >
+                    <div className="time-slot" onClick={() => { Morning();setcol(true) }}>
+                        <div className="morning" style={col?{backgroundColor:"#B0FFFA"}:null}>
                             <img src="/sunrise.png" alt="" />
                             <h4>Morning</h4>
                         </div>
                         <div className="afternoon" onClick={(e) => {
-                            e.stopPropagation(); Afternoon()
+                            e.stopPropagation(); Afternoon();setcol(false)
                         }}>
                             <img src="/weather.png" alt="Error" />
                             <h4>Afternoon</h4>
@@ -91,13 +92,13 @@ console.log(calulate);
                         )}
                         {afternoon && (
                             <div className="pm" onClick={(e) => { e.stopPropagation() }}>
-                                <input type="radio" name="afternoon" id="4" />
+                                <input type="radio" name="afternoon" id="4"  value={"12:00 PM - 1:00 PM"} checked={time==="12:00 PM - 1:00 PM"} onChange={(e) => { settime(e.target.value) }} />
                                 <label htmlFor="4">12:00 PM - 1:00 PM</label>
-                                <input type="radio" name="afternoon" id="5" />
+                                <input type="radio" name="afternoon" id="5" checked={time==="1:00 PM - 2:00 PM"} onChange={(e) => { settime(e.target.value) }}  value={"1:00 PM - 2:00 PM"}  />
                                 <label htmlFor="5">1:00 PM - 2:00 PM</label>
-                                <input type="radio" name="afternoon" id="6" />
+                                <input type="radio" name="afternoon" id="6" checked={time==="2:00 PM - 3:00 PM"} onChange={(e) => { settime(e.target.value) }}  value={"2:00 PM - 3:00 PM"} />
                                 <label htmlFor="6">2:00 PM - 3:00 PM</label>
-                                <input type="radio" name="afternoon" id="7" />
+                                <input type="radio" name="afternoon" id="7" checked={time==="3:00 PM - 4:00 PM"} onChange={(e) => { settime(e.target.value) }}  value={"3:00 PM - 4:00 PM"}  />
                                 <label htmlFor="7">3:00 PM - 4:00 PM</label>
                             </div>
                         )}
