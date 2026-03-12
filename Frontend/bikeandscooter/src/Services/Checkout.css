@@ -1,248 +1,210 @@
-/* .checkout{
-    margin-top: 10vh;
-    min-height: 100vh;
-    max-width: 100%;
-    border: 2px solid;
-}
-.bike-details-check{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    border: 2px solid;
-}
-#productimage{
+ .checkout {
+     margin-top: 10vh;
+     min-height: 100vh;
+     width: 100%;
+     background: #f5f7fa;
+     display: flex;
+     justify-content: center;
+     padding: 30px;
+     box-sizing: border-box;
+ }
+
+
+ .bike-chekout {
+     width: 90%;
+     max-width: 1200px;
+     background: #ffffff;
+     border-radius: 16px;
+     padding: 24px;
+     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+ }
+
+
+ .bike-details-check {
+     display: flex;
+     flex-direction: column;
+     gap: 0px;
+ }
+
+
+ #productimage {
      height: 180px;
      width: 180px;
-}
-#location{
-    height: 20px;
-}
-.product{
-    border: 2px solid;
-    display: flex;
-    justify-content: space-between;
-}
-#finepay{
-    height: 20px;
-}
-.dates-select{
-    display: flex;
-}
-.product-full-detail{
-    display: flex;
-    flex-direction: column;
-}
-.product-details{
-    display: flex;
-    border: 2px solid;
-    align-items: center;
-    
-}
-.additional{
-    display: flex;
-flex-direction: column;
-}
-.fine{
-    display: flex;
-    gap: 10px;
+     object-fit: contain;
+     border-radius: 12px;
+     background: #f1f1f1;
+     padding: 10px;
+ }
 
-}
 
-.fine-image{
-    display: flex;
-    
-    border: 2px solid ; 
-}
- 
-.morning img{
-    height: 20px;
-}
-.afternoon img{
-    height: 20px;
-} */
- .checkout {
-    margin-top: 10vh;
-    min-height: 100vh;
-    width: 100%;
-    background: #f5f7fa;
-    display: flex;
-    justify-content: center;
-    padding: 30px;
-    box-sizing: border-box;
-}
+ .product {
+     display: flex;
+     justify-content: space-between;
+     gap: 30px;
+     padding: 20px;
+     border-radius: 14px;
+     background: #fafafa;
+ }
 
-/* Main Card */
-.bike-chekout {
-    width: 90%;
-    max-width: 1200px;
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-}
 
-/* Left Section */
-.bike-details-check {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+ .product-full-detail h2 {
+     margin-bottom: 10px;
+     font-size: 20px;
+ }
 
-/* Product Image */
-#productimage {
-    height: 180px;
-    width: 180px;
-    object-fit: contain;
-    border-radius: 12px;
-    background: #f1f1f1;
-    padding: 10px;
-}
+ .product-full-detail h3 {
+     color: #444;
+     margin-bottom: 10px;
+ }
 
-/* Product Card */
-.product {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    padding: 20px;
-    border-radius: 14px;
-    background: #fafafa;
-}
+ .product-details {
+     display: flex;
+     align-items: center;
+     gap: 20px;
+ }
 
-/* Product Details */
-.product-full-detail h2 {
-    margin-bottom: 10px;
-    font-size: 20px;
-}
+ #location {
+     height: 18px;
+     margin-right: 6px;
+ }
 
-.product-full-detail h3 {
-    color: #444;
-    margin-bottom: 10px;
-}
+ .dates-select {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+ }
 
-.product-details {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
+ .dates-select button {
+     padding: 6px 12px;
+     border: none;
+     background: #e0f2ff;
+     color: #0077cc;
+     border-radius: 8px;
+     font-weight: 600;
+ }
 
-#location {
-    height: 18px;
-    margin-right: 6px;
-}
 
-.dates-select {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+ .additional h2 {
+     margin-bottom: 10px;
+ }
 
-.dates-select button {
-    padding: 6px 12px;
-    border: none;
-    background: #e0f2ff;
-    color: #0077cc;
-    border-radius: 8px;
-    font-weight: 600;
-}
+ .fine {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     background: #fff3f3;
+     padding: 12px 16px;
+     border-radius: 10px;
+ }
 
-/* Additional Section */
-.additional h2 {
-    margin-bottom: 10px;
-}
+ .fine-image {
+     display: flex;
+     align-items: center;
+     gap: 8px;
+ }
 
-.fine {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff3f3;
-    padding: 12px 16px;
-    border-radius: 10px;
-}
+ #finepay {
+     height: 18px;
+ }
 
-.fine-image {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+ .time-slot {
+     display: flex;
+     border: 2px solid #E8DFCA;
+     margin-top: 20px;
+     justify-content: space-around;
 
-#finepay {
-    height: 18px;
-}
+     background-color: #fff;
+     
+     cursor: pointer;
+     overflow: hidden;
+ }
 
-/* Time Slot Section */
-.time-slot {
-    margin-top: 20px;
-    padding: 20px;
-    background: #f8f9fb;
-    border-radius: 14px;
-    cursor: pointer;
-}
+ .morning {
+     display: flex;
+     width: 50%;
+     align-items: center;
+     justify-content: center;
+     gap: 8px;
+     padding: 10px 20px;
+      
+     border-right: 2px solid #FFFBF1;
+     font-weight: 600;
+ }
 
-/* Morning / Afternoon Tabs */
-.morning,
-.afternoon {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 14px;
-    border-radius: 10px;
-    font-weight: 600;
-}
+ .afternoon {
+     display: flex;
+     width: 50%;
+     align-items: center;
+     justify-content: center;
+     gap: 8px;
+     padding: 10px 20px;
+     
+     font-weight: 600;
+ }
 
-.morning:hover,
-.afternoon:hover {
-    background: #eaf3ff;
-}
+ .morning:hover,
+ .afternoon:hover {
+     background: #eaf3ff;
+ }
 
-.morning img,
-.afternoon img {
-    height: 22px;
-}
+ .morning img,
+ .afternoon img {
+     height: 22px;
+ }
 
-/* AM / PM Slots */
-.am,
-.pm {
-    margin-top: 14px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-}
 
-/* Radio Buttons Styling */
-.am input,
-.pm input {
-    display: none;
-}
+ .am,
+ .pm {
+     
+     display: flex;
+     justify-content: space-around;
+     padding:20px 5px;
+      
+     border: 1px solid #e4e4e4;
+     border-radius: 5px 5px 0px 0px;
+     background: #fafafa;
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+     gap: 12px;
+ }
 
-.am label,
-.pm label {
-    padding: 12px;
-    background: white;
-    border-radius: 10px;
-    border: 2px solid #ddd;
-    cursor: pointer;
-    text-align: center;
-    transition: 0.2s ease;
-}
 
-.am input:checked + label,
-.pm input:checked + label {
-    background: #0077ff;
-    color: white;
-    border-color: #0077ff;
-}
+ .am input,
+ .pm input {
+     display: none;
 
-/* Selected Time Text */
-p {
-    margin-top: 14px;
-    font-weight: 600;
-    color: #0077ff;
-}
+ }
 
-/* Billing Section */
-.billing-details {
-    margin-top: 30px;
-    padding: 20px;
-    background: #f1f6ff;
-    border-radius: 14px;
-}
+ .am label,
+ .pm label {
+     width: 50%;
+     padding: 10px 0;
+     background: white;
+     border-radius: 10px;
+     border: 2px solid #ddd;
+     cursor: pointer;
+     text-align: center;
+     font-weight: 500;
+     transition: 0.2s;
+ }
+
+ .am input:checked+label,
+ .pm input:checked+label {
+     background: #0077ff;
+     color: white;
+     border-color: #0077ff;
+ }
+
+
+ p {
+     margin-top: 14px;
+     font-weight: 600;
+     color: #0077ff;
+ }
+
+
+ .billing-details {
+     margin-top: 30px;
+     padding: 20px;
+     background: #f1f6ff;
+     border-radius: 14px;
+ }
