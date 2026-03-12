@@ -1,51 +1,45 @@
 const store = [
-    {
-        image: "https://freedo.rentals/images/model/YAMAHA_FASCINO/RIGHT-Fascino%20R.png",
-        name: "YAMAHA Fascino",
-        price: 799,
-        mileage: 240,
-        city:["Kolkata","Delhi"],
-        payment: "Zero Deposit Fee",
-    },
-    {
-        image: "https://freedo.rentals/images/model/HONDA_ACTIVA_5G/RIGHT-Activa%205G-01.png",
-        name: "HONDA Activa 5G",
-        price: 999,
-        mileage: 300,
-        city:["Delhi","Mumbai"],
-        payment: "Zero Deposit Fee"
-    },
-    {
-        image:"",
-        name:"",
-        price:'',
-        mileage:'',
-        city:["Kolkata"],
-        payment:""
-    },
-      {
-        image:"",
-        name:"",
-        price:'',
-        mileage:'',
-        city:["Kolkata"],
-        payment:""
-    },
-      {
-        image:"",
-        name:"",
-        price:'',
-        mileage:'',
-        city:["Kolkata"],
-        payment:""
-    },
-      {
-        image:"",
-        name:"",
-        price:'',
-        mileage:'',
-        city:["Kolkata"],
-        payment:""
-    },
+{image:"https://freedo.rentals/images/model/HERO_HF_DELUXE/RIGHT-HFDELUXEpng.png",name:"Hero HF Deluxe",price:499,mileage:180,city:["Kolkata","Delhi"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_SPLENDOR_PLUS/RIGHT-Splendorpng.png",name:"Hero Splendor Plus",price:549,mileage:200,city:["Delhi","Mumbai"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_GLAMOUR/RIGHT-GlamourRedTesterRightpng.png",name:"Hero Glamour",price:699,mileage:240,city:["Kolkata","Mumbai"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/VIDA_VIDA_V1_PRO/RIGHT-rightpng.png",name:"Vida V1 Pro",price:899,mileage:220,city:["Delhi","Bangaluru"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/VIDA_VIDA_V2_Plus/RIGHT-Vida%20V2-%20390%20x%20250%20px-right.png",name:"Vida V2 Plus",price:949,mileage:230,city:["Mumbai","Chennai"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_DESTINI_125/RIGHT-DestiniRedTesterRightpng.png",name:"Hero Destini 125",price:799,mileage:250,city:["Kolkata","Delhi"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_PLEASURE_PLUS/RIGHT-PleasurePlusBlueTesterRightpng.png",name:"Hero Pleasure Plus",price:699,mileage:210,city:["Delhi","Mumbai"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HARLEY_DAVIDSON_X440/RIGHT-Harley%20Davidson%20X440-01.png",name:"Harley Davidson X440",price:1999,mileage:350,city:["Mumbai","Bangaluru"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XTREME_200_S/RIGHT-XtremeSpng.png",name:"Hero Xtreme 200S",price:1299,mileage:320,city:["Delhi","Kolkata"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XOOM/RIGHT-Xoom.png",name:"Hero Xoom",price:799,mileage:230,city:["Kolkata","Chennai"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XTREME_160_R/RIGHT-xtrrnewpng.png",name:"Hero Xtreme 160R",price:1199,mileage:300,city:["Delhi","Mumbai"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XTREME_160_R_STEALTH/RIGHT-XtremeRStealthblackTesterRightpng.png",name:"Hero Xtreme 160R Stealth",price:1299,mileage:310,city:["Mumbai","Bangaluru"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XPULSE_200_T_4V/RIGHT-Xpulse%20200T_4V_ABWJ_Red%20Black%20360D%20S01.png",name:"Hero Xpulse 200T 4V",price:1399,mileage:330,city:["Delhi","Kolkata"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_PLEASURE_PLUS/RIGHT-PleasurePlusBlueTesterRightpng.png",name:"Hero Pleasure Plus Blue",price:699,mileage:210,city:["Kolkata","Delhi"],payment:"Zero Deposit Fee"},
+
+{image:"https://freedo.rentals/images/model/HERO_HF_DELUXE/RIGHT-HFDELUXEpng.png",name:"Hero HF Deluxe Pro",price:520,mileage:185,city:["Mumbai","Delhi"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_SPLENDOR_PLUS/RIGHT-Splendorpng.png",name:"Hero Splendor Plus X",price:570,mileage:205,city:["Kolkata","Chennai"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_GLAMOUR/RIGHT-GlamourRedTesterRightpng.png",name:"Hero Glamour Xtec",price:720,mileage:250,city:["Delhi","Mumbai"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_DESTINI_125/RIGHT-DestiniRedTesterRightpng.png",name:"Hero Destini 125 X",price:820,mileage:260,city:["Kolkata","Delhi"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XOOM/RIGHT-Xoom.png",name:"Hero Xoom ZX",price:820,mileage:240,city:["Delhi","Mumbai"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XTREME_160_R/RIGHT-xtrrnewpng.png",name:"Hero Xtreme 160R Sport",price:1220,mileage:305,city:["Bangaluru","Delhi"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XTREME_200_S/RIGHT-XtremeSpng.png",name:"Hero Xtreme 200S Pro",price:1320,mileage:325,city:["Mumbai","Kolkata"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XPULSE_200_T_4V/RIGHT-Xpulse%20200T_4V_ABWJ_Red%20Black%20360D%20S01.png",name:"Hero Xpulse 200T Touring",price:1420,mileage:340,city:["Delhi","Bangalore"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HARLEY_DAVIDSON_X440/RIGHT-Harley%20Davidson%20X440-01.png",name:"Harley Davidson X440 S",price:2100,mileage:360,city:["Mumbai","Delhi"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/VIDA_VIDA_V1_PRO/RIGHT-rightpng.png",name:"Vida V1 Pro Electric",price:920,mileage:225,city:["Delhi","Kolkata"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/VIDA_VIDA_V2_Plus/RIGHT-Vida%20V2-%20390%20x%20250%20px-right.png",name:"Vida V2 Plus Electric",price:970,mileage:235,city:["Mumbai","Chennai"],payment:"Zero Deposit Fee"},
+
+{image:"https://freedo.rentals/images/model/HERO_SPLENDOR_PLUS/RIGHT-Splendorpng.png",name:"Hero Splendor City",price:560,mileage:210,city:["Kolkata","Delhi"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_GLAMOUR/RIGHT-GlamourRedTesterRightpng.png",name:"Hero Glamour Urban",price:730,mileage:255,city:["Mumbai","Delhi"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XTREME_160_R/RIGHT-xtrrnewpng.png",name:"Hero Xtreme 160R City",price:1250,mileage:310,city:["Delhi","Kolkata"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XTREME_200_S/RIGHT-XtremeSpng.png",name:"Hero Xtreme 200S Race",price:1350,mileage:330,city:["Mumbai","Bangaluru"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_DESTINI_125/RIGHT-DestiniRedTesterRightpng.png",name:"Hero Destini Comfort",price:830,mileage:270,city:["Kolkata","Delhi"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_PLEASURE_PLUS/RIGHT-PleasurePlusBlueTesterRightpng.png",name:"Hero Pleasure Plus Comfort",price:710,mileage:220,city:["Delhi","Mumbai"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XOOM/RIGHT-Xoom.png",name:"Hero Xoom Street",price:830,mileage:245,city:["Kolkata","Delhi"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/VIDA_VIDA_V1_PRO/RIGHT-rightpng.png",name:"Vida V1 Pro Plus",price:940,mileage:230,city:["Delhi","Bangaluru"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HARLEY_DAVIDSON_X440/RIGHT-Harley%20Davidson%20X440-01.png",name:"Harley Davidson X440 Touring",price:2200,mileage:370,city:["Mumbai","Delhi"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XPULSE_200_T_4V/RIGHT-Xpulse%20200T_4V_ABWJ_Red%20Black%20360D%20S01.png",name:"Hero Xpulse Adventure",price:1450,mileage:345,city:["Delhi","Kolkata"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_SPLENDOR_PLUS/RIGHT-Splendorpng.png",name:"Hero Splendor Classic",price:575,mileage:215,city:["Mumbai","Chennai"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_HF_DELUXE/RIGHT-HFDELUXEpng.png",name:"Hero HF Deluxe Eco",price:510,mileage:190,city:["Kolkata","Delhi"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XTREME_160_R_STEALTH/RIGHT-XtremeRStealthblackTesterRightpng.png",name:"Hero Xtreme 160R Black",price:1280,mileage:315,city:["Delhi","Mumbai"],payment:"Zero Deposit Fee"},
+{image:"https://freedo.rentals/images/model/HERO_XTREME_200_S/RIGHT-XtremeSpng.png",name:"Hero Xtreme 200S Urban",price:1340,mileage:335,city:["Bangaluru","Delhi"],payment:"Zero Deposit Fee"}
 ]
+
 module.exports = store;

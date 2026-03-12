@@ -70,6 +70,18 @@ const Checkout = () => {
                             </div>
                         </div>
                     </div>
+                    <div className="mode-delivery">
+                        <div className="delivery">
+                            <img src="/download (1).png" alt="Error" />
+                            <p>Mode Of Delivery</p>
+                        </div>
+                        <span> <input type="radio" name="mode" id="PUV"  checked/>
+                        <label htmlFor="PUV">Pick-up Vehicle</label></span>
+
+                    </div>
+                    <div className='header-slot'><img src="/download.png" alt="" />
+                    <p>Select Time Slot</p>
+                    </div>
                     <div className="time-slot" >
                         <div className="morning" style={col ? { backgroundColor: "#B0FFFA" } : null} onClick={()=>{ setcol(true);setafter(false);Morning();}}>
                             <img src="/sunrise.png" alt="" />
