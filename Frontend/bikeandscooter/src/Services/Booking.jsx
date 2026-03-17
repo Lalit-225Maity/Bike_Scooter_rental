@@ -29,14 +29,17 @@ const Booking = () => {
     useEffect(() => {
         (async () => {
             try {
-                const params = {};
-                if (model.length > 0) {
-                    params.model = model; // only add if something is checked
-                }
-                if (model.length > 0) {
-                    const response = await axios.get('/api/filter', { params })
-                    console.log(response.data);
 
+                if (model.length > 0) {
+                    const response = await axios.get('/api/filter', {
+                        params: { model: model.join(',') }
+                    })
+                    setdetails(response.data.Filters);
+                }
+                else {
+                    const response = await axios.get(`/api/book?cityname=${selectcity}`);
+                    console.log(response.data.FetchBike);
+                    setdetails(response.data.FetchBike);
                 }
             } catch (error) {
 
@@ -59,6 +62,7 @@ const Booking = () => {
                 })
                 return remove;
             })
+
         }
 
     }
@@ -67,13 +71,13 @@ const Booking = () => {
             <div className="sidebar">
                 <h5>Vehicle Model</h5>
                 <div className="bike-mmodels">
-                    <label><input type="checkbox" name="bike" value="Glamour" onChange={handleChange} /> Glamour</label>
-                    <label><input type="checkbox" name="bike" value="Destini 125" onChange={handleChange} /> Destini 125</label>
-                    <label><input type="checkbox" name="bike" value="V2 Plus" onChange={handleChange} /> V2 Plus</label>
-                    <label><input type="checkbox" name="bike" value="Pleasure Plus" onChange={handleChange} /> Pleasure Plus</label>
-                    <label><input type="checkbox" name="bike" value="Xtreme 160 R" onChange={handleChange} /> Xtreme 160 R</label>
-                    <label><input type="checkbox" name="bike" value="Xpulse 200 T 4V" onChange={handleChange} /> Xpulse 200 T 4V</label>
-                    <label><input type="checkbox" name="bike" value="Xtreme 200 S" onChange={handleChange} /> Xtreme 200 S</label>
+                    <label><input type="checkbox" name="bike" value="Hero Glamour" onChange={handleChange} />Hero Glamour</label>
+                    <label><input type="checkbox" name="bike" value="Hero HF Deluxe" onChange={handleChange} />Hero HF Deluxe</label>
+                    <label><input type="checkbox" name="bike" value="Hero Xtreme 200S" onChange={handleChange} />Hero Xtreme 200S</label>
+                    <label><input type="checkbox" name="bike" value="Hero Pleasure Plus Blue" onChange={handleChange} />Hero Pleasure Plus Blue</label>
+                    <label><input type="checkbox" name="bike" value="Hero Splendor City" onChange={handleChange} />Hero Splendor City</label>
+                    <label><input type="checkbox" name="bike" value="Hero Xpulse Adventure" onChange={handleChange} />Hero Xpulse Adventure</label>
+                    <label><input type="checkbox" name="bike" value="Hero Xpulse 200T 4V" onChange={handleChange} />Hero Xpulse 200T 4V</label>
                 </div>
             </div>
             <div className="card">

@@ -43,12 +43,15 @@ const getProduct = async (req, res) => {
 const filterVehicle = async (req, res) => {
     try {
         const { model } = req.query;
-        const models = Array.isArray(model) ? model : [model];
-        console.log(models);
+      
         
+         const models=model?model.split(','):[];
+          
         const Filters = await Vehiclemodel.find({
             name: { $in: models }
         })
+       
+        
     
         res.status(200).json({
             message: "All are done",

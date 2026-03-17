@@ -4,37 +4,56 @@
     min-height: 100vh;
 
     background-color: #f4f6f9;
-
+width: 100%;
     display: flex;
+    flex-direction: row;
     gap: 5px;
 
 }
 
 .sidebar {
-    width: 60%;
-     margin-top: 12px;
-    background: #ffffff;
-    border-radius: 16px;
-    border: 2px solid;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    width: 250px;
+    background-color: #fff;
+    border-radius: 12px;
+    margin-top: 10px;
+    padding: 20px;
+    
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    height: fit-content; /* adjusts based on content */
+}
 
+.sidebar h5 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 600;
 }
-.bike-mmodels{
-    display: flex;
-    flex-direction: column;
+
+.bike-mmodels label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 15px;
+    cursor: pointer;
 }
+
+.bike-mmodels input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 .card {
-    display: flex;
-        margin-top: 12px;
-    flex-wrap: wrap;
-    gap: 20px;
-    border: 2px solid;
+    
+    flex: 1;  
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 10px;  
+    padding: 10px;
 }
-
-/* Bike card */
+ 
 .bike-details {
     background: #ffffff;
     border-radius: 16px;
+    height: fit-content;
     padding: 14px;
     box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
     display: flex;
@@ -46,16 +65,14 @@
     transform: translateY(-6px);
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
 }
-
-/* Image */
+ 
 .bike-details img {
     width: 100%;
     height: 180px;
     object-fit: cover;
     border-radius: 12px;
 }
-
-/* Bike name */
+ 
 .bike-details h4 {
     margin: 12px 0 8px;
     font-size: 16px;
@@ -63,7 +80,7 @@
     color: #222;
 }
 
-/* Price + mileage */
+ 
 .price-milage {
     display: flex;
     justify-content: space-between;
@@ -71,14 +88,13 @@
     margin-bottom: 12px;
 }
 
-/* Price */
+ 
 .price-milage h4 {
     font-size: 18px;
     font-weight: 700;
     color: #26ccc2;
 }
-
-/* Speed & payment */
+ 
 .speed {
     text-align: right;
 }
@@ -97,8 +113,7 @@
     width: 14px;
     height: 14px;
 }
-
-/* Book button */
+ 
 .book-vehicle {
     margin-top: auto;
     padding: 12px 0;
