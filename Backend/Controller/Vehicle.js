@@ -1,4 +1,4 @@
- const Vehiclemodel = require('../Models/Vehicle');
+const Vehiclemodel = require('../Models/Vehicle');
 const API = require('../API/API');
 const Createproduct = async (req, res) => {
     try {
@@ -40,4 +40,25 @@ const getProduct = async (req, res) => {
         })
     }
 }
-module.exports = { Createproduct, getProduct };
+const filterVehicle = async (req, res) => {
+    try {
+        const { model } = req.query;
+        const models = Array.isArray(model) ? model : [model];
+        console.log(models);
+        
+        const Filters = await Vehiclemodel.find({
+            name: { $in: models }
+        })
+    
+        res.status(200).json({
+            message: "All are done",
+            Filters: Filters
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message
+        })
+    }
+}
+module.exports = { Createproduct, getProduct, filterVehicle };
