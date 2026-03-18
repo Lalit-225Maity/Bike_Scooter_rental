@@ -9,6 +9,7 @@ import Booking from './Services/Booking'
 import Footer from './Footer/Footer'
 import Signup from './Auth/Signup'
 import { useLocation } from 'react-router-dom'
+import OTP from './Auth/OTP/OTP'
 const App = () => {
   const location=useLocation();
 
@@ -22,8 +23,9 @@ const App = () => {
         <Route path='/booking' element={<Booking />} />
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/signup' element={<Signup/>}/>
+        <Route path='otp' element={<OTP/>}/>
       </Routes>
-      {location.pathname!=='/signup'&& <Footer />}
+      {location.pathname!=='/signup'&& location.pathname!=='/otp'&&<Footer />}
     </div>
   )
 }

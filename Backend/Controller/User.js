@@ -2,8 +2,8 @@ const jwt = require('jsonwebtoken');
 const User = require('../Models/Usermodel');
 const sendEmail = require('../EmailSender/OTPsender');
 const OTPs = require('../Models/OTP');
-const Users = require('../Models/Usermodel');
 const dotenv = require('dotenv');
+ 
 dotenv.config();
 const createUser = async (req, res) => {
     try {
@@ -23,10 +23,16 @@ const createUser = async (req, res) => {
                 message: "Invalid Email ID"
             })
         }
+        const emails = await User.findOne({ EmailID });
+        if (emails) {
+            return res.status(409).json({
+                message: "User is Already Exists"
+            })
+        }
         const Customer = new User({
             FirstName, LastName, ContactInfo, EmailID, Gender
         })
-        const token = jwt.sign({ id: Customer._id, EmailID }, process.env.SECRET_KEY);
+        const token = jwt.sign({ id: Customer._id, Email: Customer.EmailID }, process.env.SECRET_KEY);
         res.cookie("token", token);
         await Customer.save();
         res.status(200).json({
@@ -43,10 +49,31 @@ const createUser = async (req, res) => {
     }
 
 }
+const Login = async (req, res) => {
+    try {
+        const { Email } = req.body;
+        const FindEmail = await User.findOne({ EmailID: Email });
+        if (!FindEmail) {
+            return res.status(404).json({
+                message: "User is Not Found!"
+            })
+        }
+        const token = jwt.sign({ id: FindEmail._id, Email: FindEmail.EmailID }, process.env.SECRET_KEY);
+        res.cookie("token", token);
+        res.status(200).json({
+            success: true,
+            Users: FindEmail
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
+}
 const OTPsend = async (req, res) => {
     try {
         const { EmailID } = req.body;
-        const verifyemail = await Users.findOne({ EmailID });
+        const verifyemail = await User.findOne({ EmailID });
         if (!verifyemail) {
             return res.status(404).json({
                 message: "User not Found"
@@ -60,7 +87,7 @@ const OTPsend = async (req, res) => {
         const message = `we send a verification code ${otp}`
         await sendEmail(EmailID, "reset Password", message);
 
-        res.status(200).json({ message: "OTP generated successfully", OTP });
+        res.status(200).json({ message: "OTP generated successfully", OTPgenerate });
 
 
 
@@ -90,4 +117,5 @@ const verifyOTP = async (req, res) => {
         })
     }
 }
-module.exports = { createUser, OTPsend, verifyOTP }
+ 
+module.exports = { createUser, OTPsend, verifyOTP,Login }
