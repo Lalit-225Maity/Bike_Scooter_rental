@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 const ProtectedRoute = () => {
   return (
-    <div>
+    <div className='protectroute'>
       
     </div>
   )

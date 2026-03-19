@@ -25,7 +25,7 @@ const App = () => {
         <Route path='/signup' element={<Signup/>}/>
         <Route path='otp' element={<OTP/>}/>
       </Routes>
-      {location.pathname!=='/signup'&& location.pathname!=='/otp'&&<Footer />}
+      {location.pathname!=='/signup'&& location.pathname!=='/otp'&&location.pathname!=='/signin'&&<Footer />}
     </div>
   )
 }

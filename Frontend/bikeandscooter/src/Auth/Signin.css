@@ -1,0 +1,185 @@
+/* ===== FULL PAGE ===== */
+.signin {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* SCOOTER IMAGE BACKGROUND */
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url("/cool-motorbike-with-beautiful-landscape.jpg")
+      no-repeat center/cover;
+
+  font-family: "Poppins", sans-serif;
+}
+
+/* LOGIN TITLE */
+ .signin h4 {
+  color: #ffff;
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+  position: relative;
+   
+}
+
+/* BEFORE LINE */
+.signin h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+   
+
+  width: 85px;
+  height: 3px;
+
+  background: linear-gradient(90deg,#A6E3E9,#A6B1E1,#F08A5D);
+  border-radius: 2px;
+}
+/* ===== GLASS LOGIN CARD ===== */
+.user-signin {
+  width: 420px;
+  padding: 36px;
+
+  /* LIGHT GLASS EFFECT */
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+   
+
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  
+
+  color: #222;   /* IMPORTANT — dark text for light card */
+}
+
+/* ===== HEADING (LOGO + TEXT) ===== */
+.signin-heading {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+/* LOGO IMAGE */
+.signin-heading img {
+  width: 60px;
+  height: auto;
+  object-fit: contain;
+
+  background: white;
+  padding: 6px;
+  border-radius: 14px;
+ 
+}
+
+/* TEXT CONTAINER */
+.signin-heading span {
+  display: flex;
+  flex-direction: column;
+}
+
+/* WELCOME TEXT */
+.signin-heading h5 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 600;
+  color: #111;
+}
+
+/* SUB TEXT */
+.signin-heading p {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ===== FORM ===== */
+.user-login-details form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* TERMS */
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+ 
+.user-login-details button {
+  padding: 13px;
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #56DFCF,#81E7AF,#FFB8E0);
+   background-size: 300% 300%;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+height: 50px;
+  cursor: pointer;
+ 
+  animation: gradientMove 4s ease infinite;
+}
+ @keyframes gradientMove {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+.user-login-details button:disabled {
+  background: #999;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* SIGNUP LINK */
+.usersignup-forgot {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.usersignup-forgot a {
+  color: #ff7a00;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.usersignup-forgot a:hover {
+  text-decoration: underline;
+}
+
+/* LOADING SPINNER */
+.userlogin-loading {
+  width: 22px;
+  height: 22px;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  margin: auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
