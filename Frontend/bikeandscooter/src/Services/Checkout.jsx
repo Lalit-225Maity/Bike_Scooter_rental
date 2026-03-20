@@ -2,10 +2,21 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import './Checkout.css'
 import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { TownsName, TownsName2 } from '../Services/Towns/Towns'
 const Checkout = () => {
+    const navigate=useNavigate();
+    const {
+        register,
+        watch
+    } = useForm();
     const { state } = useLocation();
     const [col, setcol] = useState(true);
+    const [kol, setkol] = useState(false);
+    const [delh, setdelh] = useState(false);
+    const [towns, settowns] = useState('');
     const [after, setafter] = useState();
     const { product, date, enddate, selectcity } = state || {};
     const [result, setresult] = useState();
@@ -20,7 +31,9 @@ const Checkout = () => {
         setresult(calulate);
     }, [date, enddate])
 
-
+const Next=()=>{
+    navigate('/pay',{state:{towns:towns}})
+}
     const Morning = () => {
         if (timatable === false) {
             settimatable(true);
@@ -30,6 +43,16 @@ const Checkout = () => {
         }
     }
 
+    useEffect(() => {
+        if (selectcity === 'Kolkata') {
+            setkol(true);
+            setdelh(false);
+        }
+        if (selectcity === "Delhi") {
+            setdelh(true);
+            setkol(false);
+        }
+    }, [])
 
     const Afternoon = () => {
         if (timatable === true) {
@@ -37,6 +60,13 @@ const Checkout = () => {
             settimatable(false);
         }
     }
+
+    const Town = watch("Town");
+    useEffect(() => {
+        console.log(Town);
+        settowns(Town);
+    }, [Town])
+
     return (
         <div className='checkout'>
             <div className="bike-chekout">
@@ -75,21 +105,21 @@ const Checkout = () => {
                             <img src="/download (1).png" alt="Error" />
                             <p>Mode Of Delivery</p>
                         </div>
-                        <span> <input type="radio" name="mode" id="PUV"  checked/>
-                        <label htmlFor="PUV">Pick-up Vehicle</label></span>
+                        <span> <input type="radio" name="mode" id="PUV" checked />
+                            <label htmlFor="PUV">Pick-up Vehicle</label></span>
 
                     </div>
                     <div className='header-slot'><img src="/download.png" alt="" />
-                    <p>Select Time Slot</p>
+                        <p>Select Time Slot</p>
                     </div>
                     <div className="time-slot" >
-                        <div className="morning" style={col ? { backgroundColor: "#B0FFFA" } : null} onClick={()=>{ setcol(true);setafter(false);Morning();}}>
+                        <div className="morning" style={col ? { backgroundColor: "#B0FFFA" } : null} onClick={() => { setcol(true); setafter(false); Morning(); }}>
                             <img src="/sunrise.png" alt="" />
                             <h4>Morning</h4>
                         </div>
                         <div className="afternoon" onClick={(e) => {
-                            e.stopPropagation(); Afternoon(); setcol(false);setafter(true);
-                        }} style={after?{backgroundColor:"#B0FFFA"}:null}>
+                            e.stopPropagation(); Afternoon(); setcol(false); setafter(true);
+                        }} style={after ? { backgroundColor: "#B0FFFA" } : null}>
                             <img src="/weather.png" alt="Error" />
                             <h4>Afternoon</h4>
                         </div>
@@ -118,10 +148,40 @@ const Checkout = () => {
                     )}
 
                 </div>
-                <p>{time}</p>
-                <div className="billing-details">
-                    
+
+                <div className="town-details">
+                    <h5>Where you want to Pick up Select Place</h5>
+
+                    <form  >
+                        <label>Select Your Area</label>
+                        <select {...register("Town", { required: true })}>
+                            <option value="">Select Town</option>
+                            {kol && (
+                                <>
+                                    {
+                                        TownsName.map((i) => (
+                                            <option value={i.townName}>{i.townName}</option>
+                                        ))
+                                    }
+                                </>
+                            )}
+                            {delh && (
+                                <>
+                                    <>
+                                        {
+                                            TownsName2.map((i) => (
+                                                <option value={i.townName}>{i.townName}</option>
+                                            ))
+                                        }
+                                    </>
+                                </>
+                            )}
+                        </select>
+
+                    </form>
+
                 </div>
+                <button onClick={()=>{Next()}} id='nextpage'>next</button>
             </div>
         </div>
     )

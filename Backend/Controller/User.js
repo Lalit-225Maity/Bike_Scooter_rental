@@ -118,5 +118,15 @@ const verifyOTP = async (req, res) => {
         })
     }
 }
- 
-module.exports = { createUser, OTPsend, verifyOTP,Login }
+const Logout=(req,res)=>{
+    try {
+    res.clearCookie("token");
+    res.status(200).json({
+        message:"Log out"
+    })
+
+    } catch (error) {
+        
+    }
+}
+module.exports = { createUser, OTPsend, verifyOTP,Login ,Logout}

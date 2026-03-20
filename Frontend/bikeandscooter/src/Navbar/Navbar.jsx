@@ -3,18 +3,35 @@ import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import axios from 'axios'
 const Navbar = () => {
     const navigate = useNavigate();
+    const [load, setload] = useState(false);
+    const [open, setopen] = useState(false);
     const [appuser, setappuser] = useState()
     useEffect(() => {
         const myuser = localStorage.getItem("User");
         if (myuser) {
-            
-            
+
+
             setappuser(JSON.parse(myuser))
         }
     }, [])
- 
+
+    const Logout = () => {
+        setload(true);
+        setTimeout(async () => {
+
+            if (appuser) {
+                localStorage.removeItem("User");
+                const response = await axios.post('/api/logout');
+                console.log(response.data);
+            }
+           setload(false);
+           window.location.reload();
+        }, 3000);
+
+    }
     return (
         <div className='navbar'>
             <div className="nav-details">
@@ -28,13 +45,25 @@ const Navbar = () => {
                 </div>
                 <div className="nav-end">
                     {appuser ? (
-                        <div className="user-exists">
-                        <img src="/user (4).png" alt="Error" />
-                        <p>{appuser.FirstName}</p>
+                        <div className="user-exists" onMouseEnter={() => { setopen(true) }} onMouseLeave={() => { setopen(false) }}>
+                            <img src="/user (4).png" alt="Error" />
+                            <p>{appuser.FirstName}</p>
+                            {open && (
+                                <div className="user-details">
+                                    <p onClick={() => { Logout() }}>Logout</p>
+                                    <p onClick={() => { navigate('/mybooking') }}>My Bookings</p>
+                                </div>
+                            )}
                         </div>
                     ) : (<NavLink to='/signin'><button>Sign In</button></NavLink>)}
                 </div>
             </div>
+            {load && (
+                <div className="pageload">
+                    <div className="spin"></div>
+                    <p>Loading...</p>
+                </div>
+            )}
         </div>
     )
 }

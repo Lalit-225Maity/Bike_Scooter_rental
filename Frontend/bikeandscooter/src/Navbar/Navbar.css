@@ -54,7 +54,7 @@
 
   background: #f1f5f9;
   border: 1px solid #e2e8f0;
-
+position: relative;
   cursor: pointer;
   transition: all 0.25s ease;
 }.user-exists img {
@@ -69,6 +69,94 @@
   font-size: 14px;
   font-weight: 600;
   color: #1f2937;
+}
+.user-details {
+  position: absolute;
+  top: 105%;
+   
+  right: 0;
+  width: 180px;
+  background: white;
+  border-radius: 12px;
+
+   
+  border: 1px solid #eee;
+
+  padding: 10px 0;
+   
+
+  animation: dropdownFade 0.25s ease;
+}
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+ /* FULL PAGE LOADER OVERLAY */
+.pageload {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+}
+
+/* SPINNER */
+.spin {
+  width: 60px;
+  height: 60px;
+
+  border: 6px solid #e0e0e0;
+  border-top: 6px solid #56DFCF;
+
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* LOADING TEXT */
+.pageload p {
+  margin-top: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 1px;
+}
+
+/* SPIN ANIMATION */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* DROPDOWN ITEMS */
+.user-details p {
+  margin: 0;
+  padding: 12px 18px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.user-details p:hover {
+  background: #f4f6f9;
+  color: #ff4d4f;
 }
  .nav-mid a:hover {
      color: #26CCC2;

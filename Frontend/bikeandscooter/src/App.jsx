@@ -1,4 +1,4 @@
-import React  from 'react'
+import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import Navbar from './Navbar/Navbar'
@@ -7,11 +7,15 @@ import About from './Pages/About/About'
 import Checkout from './Services/Checkout'
 import Booking from './Services/Booking'
 import Footer from './Footer/Footer'
+import Subscription from './Pages/Subcription/Subscription'
+import ProtectedRoute from './ProtectedRoute/ProtectedRoute'
+import Payment from './Services/Payment/Payment'
 import Signup from './Auth/Signup'
 import { useLocation } from 'react-router-dom'
+import Mybookings from './Pages/MyBookings/Mybookings'
 import OTP from './Auth/OTP/OTP'
 const App = () => {
-  const location=useLocation();
+  const location = useLocation();
 
   return (
     <div className='client'>
@@ -19,13 +23,18 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/signin' element={<Signin />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/booking' element={<Booking />} />
-        <Route path='/checkout' element={<Checkout />} />
-        <Route path='/signup' element={<Signup/>}/>
-        <Route path='otp' element={<OTP/>}/>
+        <Route path='/signup' element={<Signup />} />
+        <Route path='otp' element={<OTP />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path='/about' element={<About />} />
+          <Route path='/booking' element={<Booking />} />
+          <Route path='/subscription' element={<Subscription/>}/>
+          <Route path='/pay' element={<Payment/>}/>
+          <Route path='/checkout' element={<Checkout />} />
+          <Route path='mybooking' element={<Mybookings />} />
+        </Route>
       </Routes>
-      {location.pathname!=='/signup'&& location.pathname!=='/otp'&&location.pathname!=='/signin'&&<Footer />}
+      {location.pathname !== '/signup' && location.pathname !== '/otp' && location.pathname !== '/signin' && <Footer />}
     </div>
   )
 }
