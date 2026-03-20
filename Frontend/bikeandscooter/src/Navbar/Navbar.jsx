@@ -1,22 +1,38 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 const Navbar = () => {
     const navigate = useNavigate();
+    const [appuser, setappuser] = useState()
+    useEffect(() => {
+        const myuser = localStorage.getItem("User");
+        if (myuser) {
+            
+            
+            setappuser(JSON.parse(myuser))
+        }
+    }, [])
+ 
     return (
         <div className='navbar'>
             <div className="nav-details">
                 <img src="/freedo-logo.ba97d96f7642e3c8c26b.png" alt="" onClick={() => { navigate('/') }} />
                 <div className="nav-mid">
-                    <NavLink to='/' className={({isActive})=>isActive ? "active" : "not-active"}>Home</NavLink>
-                    <NavLink to='/about' className={({isActive})=>isActive ? "active" : "not-active"}>About</NavLink>
-                    <NavLink to='/blog' className={({isActive})=>isActive ? "active" : "not-active"}>Blog</NavLink>
-                    <NavLink to='/subscription' className={({isActive})=>isActive ? "active" : "not-active"}><button>Subscription</button></NavLink>
+                    <NavLink to='/' className={({ isActive }) => isActive ? "active" : "not-active"}>Home</NavLink>
+                    <NavLink to='/about' className={({ isActive }) => isActive ? "active" : "not-active"}>About</NavLink>
+                    <NavLink to='/blog' className={({ isActive }) => isActive ? "active" : "not-active"}>Blog</NavLink>
+                    <NavLink to='/subscription' className={({ isActive }) => isActive ? "active" : "not-active"}><button>Subscription</button></NavLink>
 
                 </div>
                 <div className="nav-end">
-                    <NavLink to='/signin'><button>Sign In</button></NavLink>
+                    {appuser ? (
+                        <div className="user-exists">
+                        <img src="/user (4).png" alt="Error" />
+                        <p>{appuser.FirstName}</p>
+                        </div>
+                    ) : (<NavLink to='/signin'><button>Sign In</button></NavLink>)}
                 </div>
             </div>
         </div>

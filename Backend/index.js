@@ -6,6 +6,7 @@ app.use(express.json());
 const cookie=require('cookie-parser');
 const connectDb = require('./Database/db');
 connectDb();
+app.use(cookie());
 const item = require('./Router/Vehicle')
 app.use('/api', item);
 const user=require('./Router/User');

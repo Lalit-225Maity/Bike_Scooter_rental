@@ -108,7 +108,8 @@ const verifyOTP = async (req, res) => {
         }
         await OTPs.deleteMany({});
         res.status(200).json({
-            message: "OTP verification successfull"
+            message: "OTP verification successfull",
+            verifyUser:verifyUser
         })
 
     } catch (error) {
