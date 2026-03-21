@@ -6,20 +6,26 @@ const PaymentDetails = new Schema({
     },
     UPI: {
         type: String,
-        required: function(){
-            return this.method==="UPI"
+        required: function () {
+            return this.method === "UPI"
         }
     },
     Debit: {
         type: String,
-        required: function(){
-            return this.method==="CARD"
+        required: function () {
+            return this.method === "CARD"
+        }
+    },
+    Debit_Password: {
+        type: String,
+        required: function () {
+            return this.method === "CARD"
         }
     },
     QR: {
         type: String,
-        required: function(){
-            this.method==="QR CODE"
+        required: function () {
+            this.method === "QR CODE"
         }
     },
     status: {
@@ -29,9 +35,9 @@ const PaymentDetails = new Schema({
     method: {
         type: String,
     },
-    Price:{
-        type:String,
-        required:true
+    Price: {
+        type: String,
+        required: true
     }
 
 })

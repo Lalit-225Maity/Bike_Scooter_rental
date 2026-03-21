@@ -3,7 +3,7 @@ const User = require('../Models/Usermodel');
 const sendEmail = require('../EmailSender/OTPsender');
 const OTPs = require('../Models/OTP');
 const dotenv = require('dotenv');
- 
+
 dotenv.config();
 const createUser = async (req, res) => {
     try {
@@ -59,7 +59,10 @@ const Login = async (req, res) => {
             })
         }
         const token = jwt.sign({ id: FindEmail._id, Email: FindEmail.EmailID }, process.env.SECRET_KEY);
-        res.cookie("token", token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: false,
+        });
         res.status(200).json({
             success: true,
             Users: FindEmail
@@ -109,7 +112,7 @@ const verifyOTP = async (req, res) => {
         await OTPs.deleteMany({});
         res.status(200).json({
             message: "OTP verification successfull",
-            verifyUser:verifyUser
+            verifyUser: verifyUser
         })
 
     } catch (error) {
@@ -118,15 +121,15 @@ const verifyOTP = async (req, res) => {
         })
     }
 }
-const Logout=(req,res)=>{
+const Logout = (req, res) => {
     try {
-    res.clearCookie("token");
-    res.status(200).json({
-        message:"Log out"
-    })
+        res.clearCookie("token");
+        res.status(200).json({
+            message: "Log out"
+        })
 
     } catch (error) {
-        
+
     }
 }
-module.exports = { createUser, OTPsend, verifyOTP,Login ,Logout}
+module.exports = { createUser, OTPsend, verifyOTP, Login, Logout }

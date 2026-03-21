@@ -1,0 +1,215 @@
+ /* ===== PAGE ===== */
+ .pay {
+     min-height: 100vh;
+     background: #f2f5fa;
+     margin-top: 10vh;
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     gap: 40px;
+
+     padding: 60px 20px;
+     flex-wrap: wrap;
+     font-family: "Segoe UI", sans-serif;
+ }
+
+ /* ===== BILLING CARD ===== */
+ .billing {
+     width: 360px;
+     background: #ffffff;
+     padding: 25px;
+     border-radius: 18px;
+
+     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+ }
+
+ .billing h4 {
+     margin-bottom: 18px;
+     font-size: 20px;
+ }
+
+ .billing-package,
+ .total-amount {
+     display: flex;
+     justify-content: space-between;
+     padding: 12px 0;
+
+     border-bottom: 1px solid #eee;
+ }
+
+ .total-amount p {
+     font-size: 22px;
+     font-weight: 700;
+     color: #00b894;
+ }
+
+ /* note */
+ .note {
+     margin-top: 16px;
+     background: #f8fbff;
+     padding: 12px;
+     border-radius: 10px;
+ }
+
+ .note p {
+     font-size: 14px;
+     color: #555;
+ }
+
+ /* ===== PAYMENT SECTION (OPTIONS + FORM) ===== */
+ .billing-methods {
+     width: 520px;
+     background: #ffffff;
+     padding: 25px;
+     border-radius: 18px;
+
+     display: flex;
+     gap: 25px;
+
+     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+ }
+
+ /* ===== LEFT: OPTIONS ===== */
+ .payment-options {
+     width: 220px;
+ }
+
+ .payment-options h4 {
+     margin-bottom: 16px;
+ }
+
+ /* option cards */
+ .upi-payment,
+ .debit-payment {
+     background: #f7f9fc;
+     padding: 14px;
+     border-radius: 12px;
+     margin-bottom: 12px;
+    
+     display: flex;
+     align-items: center;
+     gap: 12px;
+
+     cursor: pointer;
+     transition: 0.25s;
+     /* border: 2px solid transparent; */
+ }
+ .upi-payment h4,
+ .debit-payment h4{
+    margin: 0;
+ } 
+ .upi-payment:hover,
+ .debit-payment:hover {
+     background: #eef7ff;
+     border-color: #00bcd4;
+ }
+
+ /* icons */
+ .upi-payment img,
+ .debit-payment img {
+     width: 34px;
+
+ }
+
+ /* ===== RIGHT: FORM PANEL ===== */
+ .payment-form-side {
+     flex: 1;
+     min-height: 260px;
+
+     background: #fafcff;
+     padding: 18px;
+     border-radius: 14px;
+
+     display: flex;
+     align-items: center;
+     justify-content: center;
+
+     border: 1px solid #e6ecf3;
+ }
+
+ /* form */
+ .payment-form-side form {
+     width: 100%;
+
+     display: flex;
+     flex-direction: column;
+     gap: 14px;
+ }
+
+ /* button */
+ .payment-form-side button {
+     padding: 12px;
+     border: none;
+     border-radius: 10px;
+
+     background: linear-gradient(135deg, #56DFCF, #81E7AF);
+     color: white;
+
+     font-size: 16px;
+     font-weight: 600;
+
+     cursor: pointer;
+     transition: 0.2s;
+ }
+
+ .payment-form-side button:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+ }
+
+ /* ===== LOADING SPINNER ===== */
+ .upi-process {
+     width: 18px;
+     height: 18px;
+
+     border: 3px solid white;
+     border-top: 3px solid transparent;
+     border-radius: 50%;
+
+     margin: auto;
+     animation: spin 0.7s linear infinite;
+ }
+
+ @keyframes spin {
+     to {
+         transform: rotate(360deg);
+     }
+ }
+
+ /* ===== QR ===== */
+ .payment-form-side canvas {
+     margin: auto;
+     display: block;
+
+     padding: 10px;
+     background: white;
+     border-radius: 12px;
+
+     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+ }
+
+ /* ===== RESPONSIVE ===== */
+ @media (max-width: 900px) {
+     .pay {
+         flex-direction: column;
+         align-items: center;
+     }
+
+     .billing,
+     .billing-methods {
+         width: 100%;
+         max-width: 460px;
+     }
+
+     .billing-methods {
+         flex-direction: column;
+     }
+
+     .payment-options {
+         width: 100%;
+     }
+
+     .payment-form-side {
+         width: 100%;
+     }
+ }

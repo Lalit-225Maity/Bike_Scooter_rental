@@ -32,7 +32,7 @@ const Checkout = () => {
     }, [date, enddate])
 
 const Next=()=>{
-    navigate('/pay',{state:{towns:towns}})
+    navigate('/pay',{state:{towns:towns,result:result}})
 }
     const Morning = () => {
         if (timatable === false) {

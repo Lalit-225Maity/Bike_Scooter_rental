@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const PaymentProcess = async (req, res) => {
     try {
         const user = req.user;
-        const { UPI, Debit, QR, status, method, Price } = req.body;
+        const { UPI, Debit, QR, status, method, Price,Debit_Password } = req.body;
         let CompletePay;
         if (method === "UPI") {
             if (!/^[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{2,64}$/.test(UPI)) {
@@ -33,13 +33,19 @@ const PaymentProcess = async (req, res) => {
                     message: "Invalid Debit Card"
                 })
             }
+            if(Debit_Password.length!==4){
+                return res.status(404).json({
+                    message:"Password must be 4 digits"
+                })
+            }
             const salt = await bcrypt.genSalt(10);
-            const Hash = await bcrypt.hash(Debit, salt);
+            const Hash = await bcrypt.hash(Debit_Password, salt);
 
             CompletePay = new Payment({
                 UserID: user.id,
                 method,
-                Debit: Hash,
+                Debit,
+                Debit_Password:Hash,
                 Price,
                 status,
             })
