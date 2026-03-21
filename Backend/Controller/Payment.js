@@ -51,7 +51,7 @@ const PaymentProcess = async (req, res) => {
 
         }
         if (method === "QR CODE") {
-
+            
         }
 
     } catch (error) {
