@@ -10,7 +10,7 @@ import { Helmet } from 'react-helmet';
 const Payment = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
-  const { result, towns } = state || {};
+  const { product, selectcity, date, enddate,result } = state || {};
   const [UPI, setUPI] = useState(false);
   const [method, setmethod] = useState('');
   const [QR, setQR] = useState(false);
@@ -40,7 +40,25 @@ const Payment = () => {
 
           const response = await axios.post('/api/payment', paymentData, { withCredentials: true });
           console.log(response.data);
-          navigate('/mybooking')
+          if (response.data) {
+            try {
+              const startdate=new Date(date).toDateString();
+              const EndDate=new Date(enddate).toDateString();
+              const book = {
+                recieve_date: startdate,
+                end_date: EndDate,
+                model_image: product.image
+              }
+              const response2 = await axios.post('/api/booking',book,{
+                withCredentials:true
+              });
+              console.log(response2.data);
+              
+              navigate('/mybooking')
+            } catch (error) {
+
+            }
+          }
           resolve();
         } catch (error) {
           reject();
@@ -62,8 +80,23 @@ const Payment = () => {
           };
 
           const response = await axios.post('/api/payment', paymentData, { withCredentials: true });
-          console.log(response.data);
-          navigate('/mybooking')
+          if(response.data){
+            const startdate=new Date(date).toDateString();
+              const EndDate=new Date(enddate).toDateString();
+              const book = {
+                recieve_date: startdate,
+                end_date: EndDate,
+                model_image: product.image
+              }
+              const response2 = await axios.post('/api/booking',book,{
+                withCredentials:true
+              });
+              console.log(response2.data);
+              
+              navigate('/mybooking')
+          }
+          
+           
           resolve();
         } catch (error) {
           reject();

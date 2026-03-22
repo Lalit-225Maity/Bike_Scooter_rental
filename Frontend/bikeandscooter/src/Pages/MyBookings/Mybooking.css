@@ -1,0 +1,74 @@
+/* Full page */
+.mybooking {
+  min-height: 100vh;
+  margin-top: 10vh;
+  background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Container */
+.booking-details {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Booking Card */
+.booking-info {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.booking-info:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Image section */
+.booking-product-image {
+  width: 150px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.booking-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Details section */
+.booking-product-details {
+  flex: 1;
+}
+
+.booking-product-details h4 {
+  margin-bottom: 8px;
+  color: #2c3e50;
+  font-size: 20px;
+}
+
+.booking-product-details p {
+  margin: 4px 0;
+  color: #555;
+  font-size: 15px;
+}
+
+/* Highlight price */
+.booking-product-details p:last-child {
+  font-weight: 600;
+  color: #1e9e64;
+  margin-top: 8px;
+}

@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const PaymentDetails = new Schema({
     UserID: {
-        type: String,
+        type: Schema.Types.ObjectId,
         required: true
     },
     UPI: {
@@ -25,7 +25,7 @@ const PaymentDetails = new Schema({
     QR: {
         type: String,
         required: function () {
-            this.method === "QR CODE"
+            return this.method === "QR CODE"
         }
     },
     status: {
