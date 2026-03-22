@@ -5,7 +5,9 @@ import city from './City';
 import './Home.css'
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
+import { Helmet } from 'react-helmet';
 const Home = () => {
+  const baseUrl = new URL("https://mywebsite.com");
   const navigate = useNavigate();
   const [cities, setcities] = useState(false);
   const [startdate, setstartdate] = useState();
@@ -53,6 +55,10 @@ const Offer=[
   }
   return (
     <div className='home'>
+     <Helmet>
+      <title>Home</title>
+      <meta name='description'content="This is Home page"  />
+     </Helmet>
       <div className="nav-body" >
         <div className="nav-body-details">
           <h4>Two Wheeler Rentals</h4>

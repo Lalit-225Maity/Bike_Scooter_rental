@@ -1,9 +1,14 @@
 import React from 'react'
 import './About.css'
 import { aboutapi } from './AboutAPI'
+import { Helmet } from "react-helmet";
 const About = () => {
   return (
     <div className='about'>
+     <Helmet>
+      <title>About</title>
+      <meta name='description'content="This is About page"  />
+     </Helmet>
       <div className="row1">
         <h2>About Us – India’s Leading Bike Rentals and Two Wheeler Platform</h2>
         <p>

@@ -6,8 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Payment.css'
 import TextField from '@mui/material/TextField';
+import { Helmet } from 'react-helmet';
 const Payment = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const { state } = useLocation();
   const { result, towns } = state || {};
   const [UPI, setUPI] = useState(false);
@@ -16,23 +17,23 @@ const Payment = () => {
   const [debit, setdebit] = useState(false);
   const total = Number(result) * 499;
   const {
-    register:upiregister,
-    handleSubmit:upisubmit,
-    
-    formState: { isSubmitting:upisubmitting }
+    register: upiregister,
+    handleSubmit: upisubmit,
+
+    formState: { isSubmitting: upisubmitting }
   } = useForm();
-   const {
-    register:debitregister,
-    handleSubmit:debitsubmit,
-    
-    formState: { isSubmitting:debitsumitting}
+  const {
+    register: debitregister,
+    handleSubmit: debitsubmit,
+
+    formState: { isSubmitting: debitsumitting }
   } = useForm();
   const UPIPaymentsubmit = async (data) => {
     await new Promise((resolve, reject) => {
       setTimeout(async () => {
         try {
           console.log(data);
-          
+
           const paymentData = {
             ...data, method: method, Price: total
           };
@@ -50,12 +51,12 @@ const Payment = () => {
     })
   }
 
-const DebitPaymentsubmit = async (data) => {
+  const DebitPaymentsubmit = async (data) => {
     await new Promise((resolve, reject) => {
       setTimeout(async () => {
         try {
           console.log(data);
-          
+
           const paymentData = {
             ...data, method: method, Price: total
           };
@@ -81,6 +82,10 @@ const DebitPaymentsubmit = async (data) => {
 
   return (
     <div className='pay'  >
+      <Helmet>
+        <title>Payment</title>
+        <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/4575/4575124.png" type="image/x-icon" />
+      </Helmet>
       <div className="billing">
         <h4>Billing Details</h4>
         <div className="billing-package">
@@ -117,7 +122,7 @@ const DebitPaymentsubmit = async (data) => {
         <div className="payment-form-side" onClick={(e) => e.stopPropagation()}>
           {UPI && (
             <form onSubmit={upisubmit(UPIPaymentsubmit)}>
-            <h4>Pay via UPI</h4>
+              <h4>Pay via UPI</h4>
               <TextField {...upiregister("UPI")} variant="outlined" label="UPI ID" />
               <button type="submit">{upisubmitting ? (
                 <div className="upi-process"></div>
@@ -126,7 +131,7 @@ const DebitPaymentsubmit = async (data) => {
           )}
           {debit && (
             <form onSubmit={debitsubmit(DebitPaymentsubmit)}>
-            <h4>Pay using Debit Card</h4>
+              <h4>Pay using Debit Card</h4>
               <TextField label="Debit Card" {...debitregister("Debit")} variant="outlined" />
               <TextField label="Password" {...debitregister("Debit_Password")} variant="outlined" />
               <button type="submit">{debitsumitting ? (
@@ -136,7 +141,7 @@ const DebitPaymentsubmit = async (data) => {
           )}
           {QR && (
             <form  >
-            <h4>Scan here</h4>
+              <h4>Scan here</h4>
               <QRCodeCanvas value={`upi://pay?pa=lalit@oksbi&pn=Lalit%20Maity&am=${total}&cu=INR`} size={200} includeMargin={true} fgColor='#aaa' />
             </form>
           )}

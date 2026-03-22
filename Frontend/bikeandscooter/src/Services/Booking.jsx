@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import axios from 'axios';
 import './Booking.css'
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 const Booking = () => {
     const navigate = useNavigate();
     const [model, setmodel] = useState([]);
@@ -68,6 +69,10 @@ const Booking = () => {
     }
     return (
         <div className='booking'>
+        <Helmet>
+            <title>Booking</title>
+            <meta name="description" content="This is Booking page" />
+        </Helmet>
             <div className="sidebar">
                 <h5>Vehicle Model</h5>
                 <div className="bike-mmodels">

@@ -6,6 +6,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import './Signin.css'
+import { Helmet } from 'react-helmet'
 const Signin = () => {
   const navigate = useNavigate();
   const [appear, setappear] = useState('');
@@ -44,6 +45,10 @@ const Signin = () => {
 
   return (
     <div className='signin'  >
+    <Helmet>
+      <title>Login</title>
+      <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/1828/1828395.png" type="image/x-icon" />
+    </Helmet>
       <h4>Login</h4>
       <div className="user-signin">
 
