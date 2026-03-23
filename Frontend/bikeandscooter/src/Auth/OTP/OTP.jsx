@@ -7,9 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import './OTP.css'
 const OTP = () => {
     const { state } = useLocation();
-    
+
     const { Email, User } = state || {};
-    
+
     const navigate = useNavigate();
     const {
         register,
@@ -21,8 +21,8 @@ const OTP = () => {
         await new Promise((resolve, reject) => {
             setTimeout(async () => {
                 try {
-                   
-console.log(User);
+
+                    console.log(User);
 
                     const newData = {
                         ...data,
@@ -30,7 +30,9 @@ console.log(User);
                     }
                     const response = await axios.post('/api/otpverify', newData);
                     console.log(response.data.verifyUser);
-                    localStorage.setItem("User",JSON.stringify(User));
+                    if (User) {
+                        localStorage.setItem("User", JSON.stringify(User));
+                    }
                     navigate('/')
                     resolve("success");
                 } catch (error) {

@@ -10,13 +10,12 @@ const Navbar = () => {
     const [open, setopen] = useState(false);
     const [appuser, setappuser] = useState()
     useEffect(() => {
-        const myuser = localStorage.getItem("User");
-        if (myuser) {
+        const storedUser = localStorage.getItem("User");
 
-
-            setappuser(JSON.parse(myuser))
+        if (storedUser) {
+            setappuser(JSON.parse(storedUser));
         }
-    }, [])
+    }, []);
 
     const Logout = () => {
         setload(true);
@@ -27,8 +26,8 @@ const Navbar = () => {
                 const response = await axios.post('/api/logout');
                 console.log(response.data);
             }
-           setload(false);
-           window.location.reload();
+            setload(false);
+            window.location.reload();
         }, 3000);
 
     }

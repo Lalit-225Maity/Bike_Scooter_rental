@@ -28,7 +28,7 @@ const Signup = () => {
 
                     }
                     seterr(false);
-                    navigate('/otp', { state: { Email:data.EmailID,data:data } });
+                    navigate('/otp', { state: { Email:data.EmailID,User:data } });
 
                     resolve("success");
                 } catch (error) {
