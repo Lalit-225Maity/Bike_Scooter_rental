@@ -7,7 +7,8 @@ const BookVehicle = async (req, res) => {
         const {
             recieve_date,
             end_date,
-            model_image } = req.body;
+            model_image,
+        model_name } = req.body;
         const Payment_process = await payment.findOne({ UserID: user.id }).sort({ _id: -1 });;
         const User = await users.findOne({ _id: user.id })
         const UserBook = new Book({
@@ -15,9 +16,13 @@ const BookVehicle = async (req, res) => {
             recieve_date,
             end_date,
             model_image,
+            model_name,
             Payment_price: Payment_process.Price,
-            Payment_method: Payment_process.method,
-            User_Name: User.FirstName
+            Payment_status: Payment_process.status,
+            User_FirstName: User.FirstName,
+            User_LastName:User.LastName,
+            User_Contact:User.ContactInfo,
+            User_Email:User.EmailID
         })
         await UserBook.save();
         res.status(200).json({

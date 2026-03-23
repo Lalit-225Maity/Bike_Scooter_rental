@@ -5,9 +5,12 @@ const Book = new Schema({
         ref: "User",
 
     },
-    User_Name: {
+    User_FirstName: {
 
         type: String
+    },
+    User_LastName:{
+        type:String
     },
     model_name: {
         type: String,
@@ -21,13 +24,19 @@ const Book = new Schema({
         type: String,
 
     },
+    User_Contact:{
+        type:String
+    },
+    User_Email:{
+        type:String
+    },
     model_image: {
         type: String
     },
     Payment_price: {
         type: String
     },
-    Payment_method: {
+    Payment_status: {
         type: String
     }
 })

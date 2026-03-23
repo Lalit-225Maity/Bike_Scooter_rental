@@ -47,7 +47,8 @@ const Payment = () => {
               const book = {
                 recieve_date: startdate,
                 end_date: EndDate,
-                model_image: product.image
+                model_image: product.image,
+                model_name:product.name
               }
               const response2 = await axios.post('/api/booking',book,{
                 withCredentials:true
@@ -86,7 +87,8 @@ const Payment = () => {
               const book = {
                 recieve_date: startdate,
                 end_date: EndDate,
-                model_image: product.image
+                model_image: product.image,
+                model_name:product.name
               }
               const response2 = await axios.post('/api/booking',book,{
                 withCredentials:true

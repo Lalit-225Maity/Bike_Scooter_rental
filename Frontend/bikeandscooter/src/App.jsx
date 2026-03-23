@@ -7,6 +7,7 @@ import About from './Pages/About/About'
 import Checkout from './Services/Checkout'
 import Booking from './Services/Booking'
 import Footer from './Footer/Footer'
+import Blog from './Pages/Blog/Blog'
 import Subscription from './Pages/Subcription/Subscription'
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute'
 import Payment from './Services/Payment/Payment'
@@ -30,6 +31,7 @@ const App = () => {
           <Route path='/booking' element={<Booking />} />
           <Route path='/subscription' element={<Subscription/>}/>
           <Route path='/pay' element={<Payment/>}/>
+          <Route path='blog' element={<Blog/>}/>
           <Route path='/checkout' element={<Checkout />} />
           <Route path='mybooking' element={<Mybookings />} />
         </Route>

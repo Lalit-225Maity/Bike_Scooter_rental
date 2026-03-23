@@ -24,15 +24,39 @@ const Mybookings = () => {
       </Helmet>
       <div className="booking-details">
         {book.map((i) => (
-          <div className="booking-info">
-            <div className="booking-product-image"><img src={i.model_image} alt="" /></div>
-            <div className="booking-product-details">
-              <h4>Hello {i.User_Name}</h4>
-            <p>Recieve Date : {i.recieve_date}</p>
-            <p>End Date : {i.end_date}</p>
-            <p>Total Charges : {i.Payment_price}</p>
-            </div>
-          </div>
+          <table>
+             <thead>
+               <tr>
+                 <th scope='col' id='bikeimg'>#</th>
+                <th scope="col">Book Details</th>
+                <th scope="col">Client</th>
+                <th scope="col">Bike Details</th>
+               </tr>
+             </thead>
+             <tbody>
+              <tr>
+              <td>
+                <img src={i.model_image} alt="" />
+              </td>
+                <td>
+                  <p>Pick Up : {i.recieve_date}</p>
+                  <p>Return : {i.end_date} </p>
+                  <p>Amount : {i.Payment_price}</p>
+                  <p>Status : {i.Payment_status}</p>
+                </td>
+
+                <td>
+                  <p>Name : {i.User_FirstName} {i.User_LastName} </p>
+                  <p>Email : {i.User_Email}</p>
+                  <p>Contact : {i.User_Contact}</p>
+                </td>
+                <td>
+                  <p>Model Name : {i.model_name}</p>
+                </td>
+              </tr>
+              
+             </tbody>
+          </table>
         ))}
       </div>
     </div>
