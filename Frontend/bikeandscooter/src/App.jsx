@@ -5,6 +5,7 @@ import Navbar from './Navbar/Navbar'
 import Signin from './Auth/Signin'
 import About from './Pages/About/About'
 import Checkout from './Services/Checkout'
+import VehicleProtect from './ProtectedRoute/VehicleProtect'
 import Booking from './Services/Booking'
 import Footer from './Footer/Footer'
 import Blog from './Pages/Blog/Blog'
@@ -29,9 +30,11 @@ const App = () => {
         <Route element={<ProtectedRoute />}>
           <Route path='/about' element={<About />} />
           <Route path='/booking' element={<Booking />} />
-          <Route path='/subscription' element={<Subscription/>}/>
-          <Route path='/pay' element={<Payment/>}/>
-          <Route path='blog' element={<Blog/>}/>
+          <Route path='/subscription' element={<Subscription />} />
+          <Route element={<VehicleProtect />}>
+            <Route path='/pay' element={<Payment />} />
+          </Route>
+          <Route path='blog' element={<Blog />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='mybooking' element={<Mybookings />} />
         </Route>

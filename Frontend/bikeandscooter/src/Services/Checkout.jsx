@@ -32,6 +32,7 @@ const Checkout = () => {
     }, [date, enddate])
 
 const Next=()=>{
+    localStorage.setItem("Vehicle",JSON.stringify(product.name));
     navigate('/pay',{state:{result:result, product, selectcity: selectcity, date: date, enddate: enddate }})
 }
     const Morning = () => {

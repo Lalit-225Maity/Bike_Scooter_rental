@@ -8,7 +8,8 @@ const Navbar = () => {
     const navigate = useNavigate();
     const [load, setload] = useState(false);
     const [open, setopen] = useState(false);
-    const [appuser, setappuser] = useState()
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [appuser, setappuser] = useState();
     useEffect(() => {
         const storedUser = localStorage.getItem("User");
 
@@ -23,6 +24,7 @@ const Navbar = () => {
 
             if (appuser) {
                 localStorage.removeItem("User");
+                localStorage.removeItem("Vehicle");
                 const response = await axios.post('/api/logout');
                 console.log(response.data);
             }
@@ -35,7 +37,10 @@ const Navbar = () => {
         <div className='navbar'>
             <div className="nav-details">
                 <img src="/freedo-logo.ba97d96f7642e3c8c26b.png" alt="" onClick={() => { navigate('/') }} />
-                <div className="nav-mid">
+                  <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+                    ☰
+                </div>
+                <div className={`nav-mid ${menuOpen ? "active" : ""}`} >
                     <NavLink to='/' className={({ isActive }) => isActive ? "active" : "not-active"}>Home</NavLink>
                     <NavLink to='/about' className={({ isActive }) => isActive ? "active" : "not-active"}>About</NavLink>
                     <NavLink to='/blog' className={({ isActive }) => isActive ? "active" : "not-active"}>Blog</NavLink>

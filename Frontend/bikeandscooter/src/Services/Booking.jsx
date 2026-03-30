@@ -22,6 +22,7 @@ const Booking = () => {
             }
         })();
     }, [selectcity])
+
     const prove = (i) => {
         console.log(i);
         setbikeselect(i);
@@ -69,10 +70,10 @@ const Booking = () => {
     }
     return (
         <div className='booking'>
-        <Helmet>
-            <title>Booking</title>
-            <meta name="description" content="This is Booking page" />
-        </Helmet>
+            <Helmet>
+                <title>Booking</title>
+                <meta name="description" content="This is Booking page" />
+            </Helmet>
             <div className="sidebar">
                 <h5>Vehicle Model</h5>
                 <div className="bike-mmodels">
@@ -105,6 +106,7 @@ const Booking = () => {
                 ))}
 
             </div>
+            {!selectcity && (<h1 className="select-city-toast">Select City First</h1>)}
         </div>
     )
 }
