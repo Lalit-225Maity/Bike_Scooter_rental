@@ -23,7 +23,8 @@ const Mybookings = () => {
         <title>Booking</title>
       </Helmet>
       <div className="booking-details">
-        {book.map((i) => (
+      <h4>My Bookings</h4>        
+      {book.map((i) => (
           <table>
              <thead>
                <tr>
@@ -39,8 +40,17 @@ const Mybookings = () => {
                 <img src={i.model_image} alt="" />
               </td>
                 <td>
-                  <p>Pick Up : {i.recieve_date}</p>
-                  <p>Return : {i.end_date} </p>
+                  <p>Pick Up : {new Date(i.recieve_date).toLocaleDateString('en-IN',{
+                     month:'short',
+                    year:'numeric',
+                    day:'2-digit'
+                  })}</p>
+                  <p>Return : {new Date(i.end_date).toLocaleDateString('en-IN',{
+                    month:'short',
+                    year:'numeric',
+                    day:'2-digit'
+                    
+                  })} </p>
                   <p>Amount : {i.Payment_price}</p>
                   <p>Status : {i.Payment_status}</p>
                 </td>

@@ -8,7 +8,7 @@ const BookVehicle = async (req, res) => {
             recieve_date,
             end_date,
             model_image,
-        model_name } = req.body;
+            model_name } = req.body;
         const Payment_process = await payment.findOne({ UserID: user.id }).sort({ _id: -1 });;
         const User = await users.findOne({ _id: user.id })
         const UserBook = new Book({
@@ -20,9 +20,9 @@ const BookVehicle = async (req, res) => {
             Payment_price: Payment_process.Price,
             Payment_status: Payment_process.status,
             User_FirstName: User.FirstName,
-            User_LastName:User.LastName,
-            User_Contact:User.ContactInfo,
-            User_Email:User.EmailID
+            User_LastName: User.LastName,
+            User_Contact: User.ContactInfo,
+            User_Email: User.EmailID
         })
         await UserBook.save();
         res.status(200).json({
@@ -39,6 +39,9 @@ const BookVehicle = async (req, res) => {
 const getBook = async (req, res) => {
     try {
         const user = req.user;
+        await Book.deleteMany({
+            end_date: { $lte: new Date() }
+        })
         const BookDetails = await Book.find({ User_ID: user.id });
         res.status(200).json({
             BookDetails
@@ -49,4 +52,4 @@ const getBook = async (req, res) => {
         })
     }
 }
-module.exports = { BookVehicle,getBook }
+module.exports = { BookVehicle, getBook }

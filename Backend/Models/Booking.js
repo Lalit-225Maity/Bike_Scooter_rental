@@ -17,11 +17,11 @@ const Book = new Schema({
 
     },
     recieve_date: {
-        type: String,
+        type: Date,
 
     },
     end_date: {
-        type: String,
+        type: Date,
 
     },
     User_Contact:{
@@ -38,7 +38,8 @@ const Book = new Schema({
     },
     Payment_status: {
         type: String
-    }
+    },
+   
 })
 const Booking = model("Book", Book);
 module.exports = Booking
