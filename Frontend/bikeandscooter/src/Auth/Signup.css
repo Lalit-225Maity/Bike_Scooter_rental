@@ -15,12 +15,11 @@
 }
 
  
-
-/* Form container (glass card) */
+ 
 .signup form {
     position: relative;
     z-index: 1;
-   height: 450px; 
+   height:fit-content; 
  
     width: 380px;
     padding: 30px;
@@ -35,15 +34,16 @@
     flex-direction: column;
     gap: 16px;
 }
-
-/* Gender section */
+ 
 .gender-choose {
     display: flex;
     gap: 15px;
     align-items: center;
 }
-
-/* Button */
+.gender-choose label{
+    cursor: pointer;
+}
+ 
 .signup button {
     margin-top: 10px;
     padding: 12px;
@@ -63,7 +63,7 @@
     background: #115293;
 }
 
-/* Loading spinner */
+ 
 .load-account {
     width: 22px;
     height: 22px;

@@ -8,6 +8,7 @@ import Checkout from './Services/Checkout'
 import VehicleProtect from './ProtectedRoute/VehicleProtect'
 import Booking from './Services/Booking'
 import Footer from './Footer/Footer'
+ 
 import Blog from './Pages/Blog/Blog'
 import Subscription from './Pages/Subcription/Subscription'
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute'
@@ -26,7 +27,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/signin' element={<Signin />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='otp' element={<OTP />} />
+        <Route path='/otp' element={<OTP />} />
         <Route element={<ProtectedRoute />}>
           <Route path='/about' element={<About />} />
           <Route path='/booking' element={<Booking />} />
@@ -36,8 +37,11 @@ const App = () => {
           </Route>
           <Route path='blog' element={<Blog />} />
           <Route path='/checkout' element={<Checkout />} />
+
           <Route path='mybooking' element={<Mybookings />} />
         </Route>
+
+
       </Routes>
       {location.pathname !== '/signup' && location.pathname !== '/otp' && location.pathname !== '/signin' && <Footer />}
     </div>
