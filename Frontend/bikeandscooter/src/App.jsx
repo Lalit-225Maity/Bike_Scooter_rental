@@ -2,13 +2,14 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import Navbar from './Navbar/Navbar'
+import axios from 'axios'
 import Signin from './Auth/Signin'
 import About from './Pages/About/About'
 import Checkout from './Services/Checkout'
 import VehicleProtect from './ProtectedRoute/VehicleProtect'
 import Booking from './Services/Booking'
 import Footer from './Footer/Footer'
- 
+import { useEffect } from 'react'
 import Blog from './Pages/Blog/Blog'
 import Subscription from './Pages/Subcription/Subscription'
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute'
@@ -17,8 +18,24 @@ import Signup from './Auth/Signup'
 import { useLocation } from 'react-router-dom'
 import Mybookings from './Pages/MyBookings/Mybookings'
 import OTP from './Auth/OTP/OTP'
+import { useNavigate } from 'react-router-dom'
 const App = () => {
+  const navigate = useNavigate();
   const location = useLocation();
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get('/api/auth-user');
+        console.log(response.data);
+
+      } catch (error) {
+        console.log(error.response.data.message);
+        navigate('/signin');
+      }
+    })
+
+
+  }, [])
 
   return (
     <div className='client'>

@@ -8,8 +8,8 @@ import { useState } from 'react';
 import './OTP.css'
 const OTP = () => {
     const { state } = useLocation();
- const [otperr, setotperr] = useState(false);
- const [otperror, setotperror] = useState('')
+    const [otperr, setotperr] = useState(false);
+    const [otperror, setotperror] = useState('')
     const { Email, User } = state || {};
 
     const navigate = useNavigate();
@@ -35,12 +35,13 @@ const OTP = () => {
                     if (User) {
                         localStorage.setItem("User", JSON.stringify(User));
                     }
-                    navigate('/')
+                    navigate('/');
+                    window.location.reload();
                     resolve("success");
                     setotperr(false);
                 } catch (error) {
                     console.log(error.response.data.message);
-                    const err=error.response.data.message
+                    const err = error.response.data.message
                     setotperr(true);
                     setotperror(err);
                     reject();
@@ -59,7 +60,7 @@ const OTP = () => {
                         <div className="load-verify"></div>
                     ) : ("verify")}</button>
                 </form>
-               {otperr&&<p style={{color:"red"}}>{otperror}</p>}
+                {otperr && <p style={{ color: "red" }}>{otperror}</p>}
             </div>
         </div>
     )

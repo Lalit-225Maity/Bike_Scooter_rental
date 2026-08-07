@@ -32,8 +32,15 @@ const createUser = async (req, res) => {
         const Customer = new User({
             FirstName, LastName, ContactInfo, EmailID, Gender
         })
-        const token = jwt.sign({ id: Customer._id, Email: Customer.EmailID }, process.env.SECRET_KEY);
-        res.cookie("token", token);
+        const token = jwt.sign({ id: Customer._id, Email: Customer.EmailID }, process.env.SECRET_KEY, {
+            expiresIn: "7d"
+        });
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "strict",
+            maxAge: 7 * 24 * 60 * 60 * 1000
+        });
         await Customer.save();
         res.status(200).json({
             success: true,
@@ -58,10 +65,15 @@ const Login = async (req, res) => {
                 message: "User is Not Found!"
             })
         }
-        const token = jwt.sign({ id: FindEmail._id, Email: FindEmail.EmailID }, process.env.SECRET_KEY);
+        const token = jwt.sign({ id: FindEmail._id, Email: FindEmail.EmailID }, process.env.SECRET_KEY, {
+            expiresIn: "7d"
+        });
         res.cookie("token", token, {
             httpOnly: true,
-            secure: false,
+            secure: true,
+            sameSite: "strict",
+            maxAge: 7 * 24 * 60 * 60 * 1000
+
         });
         res.status(200).json({
             success: true,
@@ -132,4 +144,9 @@ const Logout = (req, res) => {
 
     }
 }
-module.exports = { createUser, OTPsend, verifyOTP, Login, Logout }
+const Checktoken=(req,res)=>{
+     res.status(200).json({
+        message:"authenticate"
+     })
+}
+module.exports = { createUser, OTPsend, verifyOTP, Login, Logout,Checktoken }

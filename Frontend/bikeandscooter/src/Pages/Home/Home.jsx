@@ -7,18 +7,18 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import { Helmet } from 'react-helmet';
 const Home = () => {
-  
+
   const navigate = useNavigate();
   const [cities, setcities] = useState(false);
   const [startdate, setstartdate] = useState();
   const [enddate, setenddate] = useState();
   const [index, setindex] = useState(0);
-const Offer=[
-  " https://cms.freedo.rentals/cms-static/New_Refer_and_Earn_offer_2f8db25475.webp",
-   
-  "https://content3.jdmagicbox.com/v2/comp/hyderabad/i9/040pxx40.xx40.241121174450.e4i9/catalogue/freedo-rentals-madhapur-hyderabad-bike-on-rent-noo1i8vxls.jpg"
+  const Offer = [
+    " https://cms.freedo.rentals/cms-static/New_Refer_and_Earn_offer_2f8db25475.webp",
 
-]
+    "https://content3.jdmagicbox.com/v2/comp/hyderabad/i9/040pxx40.xx40.241121174450.e4i9/catalogue/freedo-rentals-madhapur-hyderabad-bike-on-rent-noo1i8vxls.jpg"
+
+  ]
   const {
     register,
     handleSubmit,
@@ -29,15 +29,17 @@ const Offer=[
   } = useForm();
   const select_city = watch("Select_City");
   useEffect(() => {
-     const TimerChange=setInterval(() => {
-      setindex((i)=>{
-        const result=(i+1)%Offer.length;
+    const TimerChange = setInterval(() => {
+      setindex((i) => {
+        const result = (i + 1) % Offer.length;
         return result
       })
-     }, 20000);
-     return()=>{clearInterval(TimerChange)}
+    }, 20000);
+    return () => { clearInterval(TimerChange) }
   }, [Offer.length])
+
   
+
   const changepage = async (data) => {
     await new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -55,10 +57,10 @@ const Offer=[
   }
   return (
     <div className='home'>
-     <Helmet>
-      <title>Home</title>
-      <meta name='description'content="This is Home page"  />
-     </Helmet>
+      <Helmet>
+        <title>Home</title>
+        <meta name='description' content="This is Home page" />
+      </Helmet>
       <div className="nav-body" >
         <div className="nav-body-details">
           <h4>Two Wheeler Rentals</h4>
@@ -111,11 +113,11 @@ const Offer=[
             </form>
           </div>
         </div>
-<div className="offer-detail" >
-        <img  key={index} src={Offer[index]} alt="Error" />
+        <div className="offer-detail" >
+          <img key={index} src={Offer[index]} alt="Error" />
+        </div>
       </div>
-      </div>
-       
+
       {cities && (
         <div className="city-overlay" onClick={() => setcities(false)}>
 
